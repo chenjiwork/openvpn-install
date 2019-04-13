@@ -258,8 +258,9 @@ ssbzSibBsu/6iGtCOGEoXJf//////////wIBAg==
 	echo "port $PORT
 proto $PROTOCOL
 dev tun
-sndbuf 0
-rcvbuf 0
+sndbuf 1048576
+rcvbuf 1048576
+socket-flags TCP_NODELAY
 ca ca.crt
 cert server.crt
 key server.key
@@ -383,8 +384,9 @@ exit 0' > $RCLOCAL
 	echo "client
 dev tun
 proto $PROTOCOL
-sndbuf 0
-rcvbuf 0
+sndbuf 1048576
+rcvbuf 1048576
+socket-flags TCP_NODELAY
 remote $IP $PORT
 resolv-retry infinite
 nobind
